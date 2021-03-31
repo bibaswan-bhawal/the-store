@@ -3,9 +3,11 @@ import { Switch, Route } from "react-router-dom";
 
 import "./css/App.css";
 
+import NavBar from "./components/navbar/navbar";
+
 import HomePage from "./pages/homepage/homepage";
 import ShopPage from "./pages/shop/shop";
-import NavBar from "./components/navbar/navbar";
+import LoginPage from "./pages/login/login";
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/shop" component={ShopPage} />
+        <Route exact path="/sign-in" component={LoginPage} />
       </Switch>
     </div>
   );
