@@ -57,7 +57,7 @@ class SignIn extends Component {
           />
           <div className="buttons">
             <ButtonInput type="submit">Sign in</ButtonInput>
-            <ButtonInput onClick={signInWithGoogle} isGoogleSignIn>Sign in with Google</ButtonInput>
+            <ButtonInput type="button" onClick={signInWithGoogle} isGoogleSignIn>Sign in with Google</ButtonInput>
           </div>
         </form>
       </div>
