@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { createStructuredSelector } from "reselect";
+
 //Redux actions
 import { setCurrentUser } from "./redux/user/user.actions"
 
@@ -19,17 +20,16 @@ import ShopPage from "./pages/shop/shop";
 import LoginPage from "./pages/login/login";
 import CheckoutPage from "./pages/checkout/checkout"
 
+//styles
 import "./css/App.css";
+
 class App extends Component {
   unsubscribeFromAuth = null;
 
-
   componentDidMount() {
-
     const { setCurrentUser } = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
@@ -42,7 +42,6 @@ class App extends Component {
       }
 
       setCurrentUser(userAuth);
-
     });
   }
 
@@ -73,7 +72,7 @@ class App extends Component {
   }
 }
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = dispatch => ({
