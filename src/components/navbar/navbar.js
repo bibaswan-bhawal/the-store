@@ -5,7 +5,7 @@ import { auth } from "../../firebase/firebase.utils";
 import { createStructuredSelector } from "reselect";
 
 import CartIcon from "../cart-icon/cart-icon";
-import CartDropdown from "../cart-dropdown/cart-dropdown";
+import CartDropdownContainer from "../cart-dropdown/cart-dropdown.container";
 
 import { selectCurrentUser } from "../../redux/user/user.selector";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
@@ -29,11 +29,11 @@ const NavBar = ({ currentUser, hidden }) => (
           :
           <Link className="option" to="/sign-in">SIGN IN</Link>
       }
-      <CartIcon />  
+      <CartIcon />
     </div>
 
     {
-      hidden ? null : <CartDropdown />
+      hidden ? null : <CartDropdownContainer />
     }
   </div>
 );
