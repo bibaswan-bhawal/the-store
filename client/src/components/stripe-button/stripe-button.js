@@ -6,8 +6,6 @@ const StripeCheckoutButton = ({ price }) => {
     const priceForStripe = price * 100;
     const publishableKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
 
-    console.log(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
-
     const onToken = token => {
         axios({
             url: 'payment',
