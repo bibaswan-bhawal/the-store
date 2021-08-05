@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const StripeCheckoutButton = ({ price }) => {
     const priceForStripe = price * 100;
-    const publishableKey = 'pk_test_51J9oefGKNo8NIVqM0gKpwpBoY8MiPqZRajZrmPLNf7iZtwce5H8g1wJzKIYDVjnS464jsdrHKDmlNjzvhtqC6YBK00rpjM5XxA';
+    const publishableKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
 
     const onToken = token => {
         axios({
@@ -15,7 +15,7 @@ const StripeCheckoutButton = ({ price }) => {
                 token
             }
         }).then(response => {
-            alert('payment Successful')
+            alert('payment Successful');
         }).catch(error => {
             console.log('payment error: ', JSON.parse(error));
             alert('There was an error');

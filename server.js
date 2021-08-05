@@ -24,11 +24,6 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-app.listen(port, error => {
-    if (error) throw error;
-    console.log('server running on port: ' + port);
-});
-
 app.post('/payment', (request, response) => {
     const body = {
         source: request.body.token.id,
@@ -44,3 +39,9 @@ app.post('/payment', (request, response) => {
         }
     });
 });
+
+app.listen(port, error => {
+    if (error) throw error;
+    console.log('server running on port: ' + port);
+});
+
